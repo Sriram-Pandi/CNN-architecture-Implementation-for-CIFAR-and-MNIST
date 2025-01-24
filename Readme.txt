@@ -1,4 +1,4 @@
-# **CNN Architecture Implementation for MNIST and CIFAR-10**
+**CNN Architecture Implementation for MNIST and CIFAR-10**
 
 This project implements a **Convolutional Neural Network (CNN)** for classifying images from the MNIST and CIFAR-10 datasets. The implementation is done in Python using the **PyTorch** framework. It includes training, testing, and visualizing the results of the first convolutional layer.
 
