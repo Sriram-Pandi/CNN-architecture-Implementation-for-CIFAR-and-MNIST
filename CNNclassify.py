@@ -151,7 +151,7 @@ def test_image(image_path, dataset_name):
 
     # Loading the appropriate models
     model = CNN(input_channels=input_channels).to(device)
-    model.load_state_dict(torch.load(f"model/{dataset_name}_model.pth"))
+    model.load_state_dict(torch.load(f"model/{dataset_name}_model.pth", map_location=device))
 
     with torch.no_grad():
         model.eval()
@@ -191,6 +191,9 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, choices=["mnist", "cifar"], required=True)
     parser.add_argument("image_path", type=str, nargs="?")
     args = parser.parse_args()
+
+    if args.action == "test" and args.image_path is None:
+        parser.error("test requires an image path")
 
     if args.action == "train":
         train_model(args.dataset)
